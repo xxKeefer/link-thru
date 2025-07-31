@@ -1,0 +1,50 @@
+# Node modules and lockfiles
+**/node_modules/
+**/pnpm-lock.yaml
+
+# TypeScript build output
+**/dist/
+**/build/
+
+# Environment files
+**/.env
+**/.env.*.local
+**/.env.local
+**/.env.production
+**/.env.development
+
+# Logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS & Linux system files
+.DS_Store
+Thumbs.db
+
+# Docker artifacts
+**/docker-compose.override.yml
+**/*.local.yml
+**/.docker/
+
+# OS-level files
+ehthumbs.db
+Icon?
+._*
+
+# Test output
+coverage/
+*.lcov
+
+# Frontend artifacts (e.g. Vite or Next.js builds)
+frontend/.next/
+frontend/.turbo/
+frontend/out/
+frontend/public/build/
