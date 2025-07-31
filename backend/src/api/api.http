@@ -1,0 +1,16 @@
+
+### shorten.ts -----------------------------------------
+POST http://localhost:3000/shorten HTTP/1.1
+content-type: application/json
+
+{
+    "url": "https://keefer.au"
+}
+
+###
+GET http://localhost:3000/shorten/0000000000/stats HTTP/1.1
+
+###
+
+DELETE http://localhost:3000/shorten/0000000000 HTTP/1.1
+
