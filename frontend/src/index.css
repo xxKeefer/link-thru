@@ -1,68 +1,156 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('/fonts/Mona-Sans.woff2') format('woff2');
+  font-display: swap;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@font-face {
+  font-family: 'Shantell Sans';
+  src: url('/fonts/ShantellSans-VariableFont_BNCE,INFM,SPAC,wght.ttf') format('truetype');
+  font-display: swap;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@font-face {
+  font-family: 'Noto Color Emoji';
+  src: url('/fonts/NotoColorEmoji-Regular.ttf') format('truetype');
+  font-display: swap;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  exclude: rootscrollgutter;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@custom-variant dark (&:where([data-theme=keefer-dark], [data-theme=keefer-dark] *));
+
+@plugin "daisyui/theme" {
+  name: "keefer";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(94% 0.029 294.588);
+  --color-base-200: oklch(89% 0.057 293.283);
+  --color-base-300: #d3c4ff;
+  --color-base-content: oklch(27% 0.006 286.033);
+  --color-primary: #764bcf;
+  --color-primary-content: oklch(94% 0.029 294.588);
+  --color-secondary: #41307a;
+  --color-secondary-content: oklch(94% 0.029 294.588);
+  --color-accent: oklch(40% 0.17 325.612);
+  --color-accent-content: oklch(94% 0.029 294.588);
+  --color-neutral: oklch(27% 0.006 286.033);
+  --color-neutral-content: oklch(94% 0.029 294.588);
+  --color-info: oklch(62% 0.214 259.815);
+  --color-info-content: oklch(21% 0.006 285.885);
+  --color-success: oklch(62% 0.194 149.214);
+  --color-success-content: oklch(21% 0.006 285.885);
+  --color-warning: oklch(68% 0.162 75.834);
+  --color-warning-content: oklch(27% 0.006 286.033);
+  --color-error: oklch(58% 0.253 17.585);
+  --color-error-content: oklch(14% 0.005 285.823);
+  --radius-selector: 2rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.21875rem;
+  --border: 0.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "keefer-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #03020f;
+  --color-base-200: #040117;
+  --color-base-300: #0d013a;
+  --color-base-content: #f4f4f6;
+  --color-primary: #5633b1;
+  --color-primary-content: #f4f4f6;
+  --color-secondary: #9687ce;
+  --color-secondary-content: #03020f;
+  --color-accent: #d089e0;
+  --color-accent-content: #03020f;
+  --color-neutral: #f4f4f6;
+  --color-neutral-content: #03020f;
+  --color-info: oklch(45% 0.24 277.023);
+  --color-info-content: #f4f4f6;
+  --color-success: oklch(52% 0.154 150.069);
+  --color-success-content: #f4f4f6;
+  --color-warning: oklch(55% 0.135 66.442);
+  --color-warning-content: #f4f4f6;
+  --color-error: oklch(50% 0.213 27.518);
+  --color-error-content: #f4f4f6;
+  --radius-selector: 2rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.21875rem;
+  --border: 0.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@theme inline {
+  --font-sans: "Mona Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Shantell Sans", sans-serif;
+  --font-emoji: "Noto Color Emoji", sans-serif;
+
+  --animate-hand-wave: hand-wave 15s ease-in-out infinite;
+
+  @keyframes hand-wave {
+
+    0%,
+    5% {
+      transform: rotate(0deg);
+    }
+
+    /* Start neutral */
+    6%,
+    10%,
+    14%,
+    18%,
+    22% {
+      transform: rotate(20deg);
+    }
+
+    /* Wave */
+    8%,
+    12%,
+    16%,
+    20% {
+      transform: rotate(-20deg);
+    }
+
+    /* Wave */
+    25%,
+    100% {
+      transform: rotate(0deg);
+    }
+
+    /* Back to still */
   }
-  a:hover {
-    color: #747bff;
+
+  --animate-scroll-left: scroll-left 60s linear infinite;
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 48px));
+    }
   }
-  button {
-    background-color: #f9f9f9;
-  }
+
 }
